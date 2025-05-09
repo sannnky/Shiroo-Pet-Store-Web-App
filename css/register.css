@@ -1,0 +1,44 @@
+/* register.php */
+.register-page {
+  background: linear-gradient(to bottom, #7b5cb7, #9b8cd0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inria Sans", sans-serif;
+}
+
+.register-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.register-card h2 {
+  text-align: center;
+  color: #64448f;
+}
+
+.register-card input,
+.register-card button {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-button);
+}
+
+.register-card button {
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-card button:hover {
+  background-color: #7c74a6;
+}
