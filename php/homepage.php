@@ -5,8 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shiroo Pet Store - Homepage</title>
-    <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/homepage.css?v=1.0" />
+
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Inria+Sans" rel="stylesheet" />
 </head>
 
@@ -14,7 +19,7 @@
     <!-- Navbar -->
     <nav class="top-navbar">
         <div class="navbar-left">
-            <img src="img/logo.png" alt="Shiroo Logo" class="logo" />
+            <img src="../img/logo-circle.png" alt="Shiroo Logo" class="logo" />
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
         <div class="navbar-right" id="navbarMenu">
@@ -31,31 +36,28 @@
     </div>
 
     <!-- Menu Section -->
-    <section class="menu" style="
-        background: url('../img/menu-bg.png') no-repeat center center fixed;
-        background-size: cover;
-        overflow: hidden;
-      ">
-        <div class="menu-banner">
-            <img src="../img/banner-1.png" alt="banner" />
-        </div>
-        <div class="menu-buttons">
-            <a href="booking-details.php?id=1" class="menu-button">
-                Bath Your Cat <img src="../img/bath-icon.png" alt="Bath Icon" />
-            </a>
-            <a href="booking-details.php?id=2" class="menu-button">
-                Grooming Cat <img src="../img/grooming-icon.png" alt="Grooming Icon" />
-            </a>
-            <a href="#" class="menu-button">
-                Cat Equipment <img src="../img/equipment-icon.png" alt="Equipment Icon" />
-            </a>
-            <a href="booking-details.php?id=3" class="menu-button">
-                Cat Hotel Care <img src="../img/hotel-icon.png" alt="Hotel Icon" />
-            </a>
-        </div>
+    <div class="menu-bg">
+        <section class="menu">
+            <div class="menu-banner">
+                <!-- <img src="../img/banner-1.png" alt="banner" /> -->
+            </div>
+            <div class="menu-buttons">
+                <a href="booking-details.php?id=1" class="menu-button">
+                    Bath Your Cat <img src="../img/bath-icon.png" alt="Bath Icon" />
+                </a>
+                <a href="booking-details.php?id=2" class="menu-button">
+                    Grooming Cat <img src="../img/grooming-icon.png" alt="Grooming Icon" />
+                </a>
+                <a href="#" class="menu-button">
+                    Cat Equipment <img src="../img/equipment-icon.png" alt="Equipment Icon" />
+                </a>
+                <a href="booking-details.php?id=3" class="menu-button">
+                    Cat Hotel Care <img src="../img/hotel-icon.png" alt="Hotel Icon" />
+                </a>
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </section>
 
     <!-- Bottom Navbar for Mobile -->
     <footer class="bottom-navbar">

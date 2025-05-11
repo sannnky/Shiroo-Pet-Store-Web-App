@@ -32,6 +32,12 @@ body {
   flex-direction: column;
 }
 
+.login-card label {
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
 .login-card input {
   padding: 10px;
   border: none;
@@ -75,7 +81,7 @@ body {
   color: red;
 }
 
-/* Responsive */
+/* Responsive*/
 @media (max-width: 768px) {
   body {
     background-size: cover;

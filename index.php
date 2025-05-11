@@ -29,14 +29,19 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiroo Pet Store - Login</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inria+Sans" rel="stylesheet" />
 </head>
 
 <body>
     <div class="login-card">
         <div class="logo-login">
-            <img src="../assets/logo.png" alt="Logo Shiroo" />
+            <img src="img/logo-circle.png" alt="Logo Shiroo" />
         </div>
 
         <form method="post" action="">

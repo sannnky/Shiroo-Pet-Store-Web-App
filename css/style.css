@@ -59,7 +59,6 @@ body {
   color: var(--color-button-hover);
 }
 
-/* Bottom Navbar for Mobile */
 .bottom-navbar {
   position: fixed;
   bottom: 0;
@@ -78,7 +77,7 @@ body {
   font-size: 1rem;
 }
 
-/*  Mobile Name Navbar */
+/* Mobile Name Navbar */
 .mobile-name-navbar {
   display: none;
   background-color: var(--color-bg-gradient-end);
@@ -86,12 +85,21 @@ body {
   padding: 1rem 0.8rem;
   font-weight: bold;
   font-size: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .mobile-name-navbar {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
   }
 
   .top-navbar {
