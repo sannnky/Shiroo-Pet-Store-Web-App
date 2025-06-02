@@ -13,7 +13,6 @@ body {
   overflow: hidden;
 }
 
-/* Initially hide the banner image on mobile */
 .menu-banner img {
   display: block;
   width: 100%;
@@ -21,9 +20,7 @@ body {
   object-fit: cover;
 }
 
-/* Show the banner image on desktop only */
 @media (max-width: 768px) {
-  /* Hide the banner image on mobile */
   .menu-banner img {
     display: none;
   }

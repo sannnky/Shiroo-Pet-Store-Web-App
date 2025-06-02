@@ -28,7 +28,7 @@
             <input type="password" name="confirm_password" placeholder="Confirm Password" required>
             <button type="submit" name="submit">Daftar</button>
 
-            <p class="register-link">Sudah punya akun? <a href="../index.php">Login disini!</a></p>
+            <p class="register-link">Sudah punya akun? <a href="login.php">Login disini!</a></p>
         </form>
         <?php
         if (isset($_POST['submit'])) {
@@ -48,7 +48,7 @@
                 $hashed = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed')";
                 if ($conn->query($sql) === TRUE) {
-                    echo "<script>alert('Registrasi berhasil.'); location='index.php';</script>";
+                    echo "<script>alert('Registrasi berhasil.'); location='login.php';</script>";
                 } else {
                     echo "<p class='error'>Gagal mendaftar: " . $conn->error . "</p>";
                 }

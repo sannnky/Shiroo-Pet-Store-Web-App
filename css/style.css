@@ -29,6 +29,16 @@ body {
   align-items: center;
 }
 
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  gap: 20px;
+}
+
 .logo {
   height: 40px;
 }

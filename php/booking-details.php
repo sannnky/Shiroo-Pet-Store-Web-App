@@ -1,12 +1,29 @@
 <?php
-$koneksi = new mysqli("localhost", "root", "", "shiroo_db");
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+session_start();
 
-$stmt = $koneksi->prepare("SELECT * FROM booking_detail WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-$data = $result->fetch_assoc();
+if (!isset($_SESSION['user_id'])) {
+    // Jika belum login, arahkan ke halaman login
+    header("Location: ../index.php");
+    exit();
+}
+
+include 'db.php'; // Pastikan 'db.php' sudah ada koneksi $conn seperti di homepage.php
+
+// Ambil data user berdasarkan session
+$user_id = $_SESSION['user_id'];
+$queryUser = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$queryUser->bind_param("i", $user_id);
+$queryUser->execute();
+$resultUser = $queryUser->get_result();
+$user = $resultUser->fetch_assoc();
+
+// Ambil data booking detail berdasarkan id dari GET
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$queryBooking = $conn->prepare("SELECT * FROM booking_detail WHERE id = ?");
+$queryBooking->bind_param("i", $id);
+$queryBooking->execute();
+$resultBooking = $queryBooking->get_result();
+$data = $resultBooking->fetch_assoc();
 
 if (!$data) {
     echo "Layanan tidak ditemukan.";
@@ -19,13 +36,12 @@ if (!$data) {
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $data['name'] ?>Shiroo Pet Store - Booking Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><?= htmlspecialchars($data['name']) ?> - Shiroo Pet Store - Booking Details</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css?v=1.0">
+    <link rel="stylesheet" href="../css/style.css?v=1.0" />
     <link rel="stylesheet" href="../css/booking-details.css?v=1.0" />
-
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Inria+Sans" rel="stylesheet" />
@@ -39,35 +55,37 @@ if (!$data) {
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
         <div class="navbar-right" id="navbarMenu">
-            <a href="homepage.php" class="navbar-item">Home</a>
-            <a href="" class="navbar-item">Chat</a>
-            <a href="" class="navbar-item">Shop</a>
-            <a href="" class="navbar-item">User</a>
+            <a href="../index.php" class="navbar-item">Home</a>
+            <a href="coming-soon.php" class="navbar-item">Chat</a>
+            <a href="shop.php" class="navbar-item">Shop</a>
+            <a href="user.php" class="navbar-item">User</a>
         </div>
     </nav>
 
-    <!-- Name Navbar -->
     <div class="mobile-name-navbar">
+        Halo, <?= htmlspecialchars($user['username']) ?>
     </div>
 
-    <!-- Booking Details -->
-    <div class="booking-container">
-        <img src="../img/booking-img/<?= $data['image'] ?>" alt="<?= $data['name'] ?>">
-        <h2><?= $data['name'] ?></h2>
-        <div class="booking-desc">
-            <p><?= $data['description'] ?></p>
+    <main class="page-content">
+        <!-- Booking Details -->
+        <div class="booking-container">
+            <img src="../img/booking-img/<?= htmlspecialchars($data['image']) ?>"
+                alt="<?= htmlspecialchars($data['name']) ?>" />
+            <h2><?= htmlspecialchars($data['name']) ?></h2>
+            <div class="booking-desc">
+                <p><?= nl2br(htmlspecialchars($data['description'])) ?></p>
+            </div>
+            <a href="booking-form.php?id=<?= $data['id'] ?>" class="booking-button">Booking Now</a>
         </div>
-        <a href="booking-form.php?id=<?= $data['id'] ?>" class="booking-button">Booking Now</a>
-    </div>
+    </main>
 
     <!-- Bottom Navbar for Mobile -->
     <footer class="bottom-navbar">
-        <a href="homepage.php" class="bottom-nav-item">Home</a>
-        <a href="#" class="bottom-nav-item">Chat</a>
-        <a href="#" class="bottom-nav-item">Shop</a>
-        <a href="#" class="bottom-nav-item">User</a>
+        <a href="../index.php" class="bottom-nav-item">Home</a>
+        <a href="coming-soon.php" class="bottom-nav-item">Chat</a>
+        <a href="shop.php" class="bottom-nav-item">Shop</a>
+        <a href="user.php" class="bottom-nav-item">User</a>
     </footer>
-
 </body>
 
 </html>
